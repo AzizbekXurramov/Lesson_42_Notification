@@ -1,10 +1,14 @@
 package uz.azizbekxurramov.lesson_42_notification
 
-import android.app.*
+import android.app.NotificationChannel
+import android.app.NotificationManager
+import android.app.PendingIntent
+import android.app.TaskStackBuilder
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import androidx.core.graphics.drawable.IconCompat
@@ -14,7 +18,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-//
+        /**Bu yerga githubdan sinash uchun uzgartirish kiritib kuryapman*/
+
+        Log.d("MainActivity", "Notification:  Pochta:: azizbekxurramov@gmail.com")
+
+
     }
 
     fun simple(view: View) {
@@ -25,7 +33,7 @@ class MainActivity : AppCompatActivity() {
 
         val channelId = "1"
         val channeName = "1"
-       val notificationId = 1
+        val notificationId = 1
 
         val notificationManagerCompat = NotificationManagerCompat.from(this)
         val builder = NotificationCompat.Builder(this, channelId)
