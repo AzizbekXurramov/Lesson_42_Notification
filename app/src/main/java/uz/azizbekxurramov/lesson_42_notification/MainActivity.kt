@@ -13,6 +13,8 @@ import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import androidx.core.graphics.drawable.IconCompat
 
+/**  Yana buttonni uzgartirdik*/
+
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -51,23 +53,24 @@ class MainActivity : AppCompatActivity() {
         val stacBuilder = TaskStackBuilder.create(applicationContext)
         stacBuilder.addNextIntent(intent)
 
-        val pendingIntent = stacBuilder.getPendingIntent(2,PendingIntent.FLAG_CANCEL_CURRENT)
+        val pendingIntent = stacBuilder.getPendingIntent(2, PendingIntent.FLAG_CANCEL_CURRENT)
         builder.setContentIntent(pendingIntent)
 
 
 
 
-           if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-               val channel = NotificationChannel(channelId, channeName, NotificationManager.IMPORTANCE_HIGH)
-               channel.enableVibration(true)
-               channel.setShowBadge(true)
-               builder.setChannelId(channelId)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            val channel =
+                NotificationChannel(channelId, channeName, NotificationManager.IMPORTANCE_HIGH)
+            channel.enableVibration(true)
+            channel.setShowBadge(true)
+            builder.setChannelId(channelId)
 
-               notificationManagerCompat.createNotificationChannel(channel)
-            }
+            notificationManagerCompat.createNotificationChannel(channel)
+        }
 
 
-        val notification =builder.build()
+        val notification = builder.build()
         notificationManagerCompat.notify(notificationId, notification)
     }
 }
